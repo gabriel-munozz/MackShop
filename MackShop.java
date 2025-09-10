@@ -10,7 +10,16 @@ public class MackShop {
         System.out.println("5. Finalizar venda");
         System.out.println("6. Ver histórico de vendas");
         System.out.println("7. Buscar venda específica do histórico");
+        System.out.println("8. (Admin) Repor estoque");
+        System.out.println("9. (Admin) Relatório de estoque baixo");
         System.out.printf("Escolha uma opção: ");
         int opcao = entrada.nextInt();
+
+        if (opcao == 1) {
+            
+        }
+        else if (opcao = 2) {
+        
+        }
     }
 }
