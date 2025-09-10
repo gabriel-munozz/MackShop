@@ -3,6 +3,8 @@ public class MackShop {
     public static void main(String[] args) {
         Scanner entrada = new Scanner (System.in);
 
+        int [] ids = {101, 207, 320};
+
         System.out.println("1. Inicializar base");
         System.out.println("2. Exibir catálogo de produtos");
         System.out.println("3. Adicionar item à venda");
@@ -18,7 +20,7 @@ public class MackShop {
         if (opcao == 1) {
             
         }
-        else if (opcao = 2) {
+        else if (opcao == 2) {
         
         }
     }
