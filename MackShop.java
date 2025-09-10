@@ -3,7 +3,17 @@ public class MackShop {
     public static void main(String[] args) {
         Scanner entrada = new Scanner (System.in);
 
-        int [] ids = {101, 207, 320};
+        int [] idsProdutos = {};
+        String [] nomesProdutos = {};
+        double [] precosProdutos = {};
+        int [] estoqueProdutos = {};
+
+        int [] vendaAtualIds = {};
+        int [] vendaAtualQuantidades = {};
+
+        int [] historicoIdsPedidos = {};
+        int [] historicoValoresPedidos = {};
+        int [][] historicoItensPedidos= {};
 
         System.out.println("1. Inicializar base");
         System.out.println("2. Exibir catálogo de produtos");
