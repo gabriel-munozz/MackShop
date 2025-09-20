@@ -1,19 +1,20 @@
 import java.util.Scanner;
 public class MackShop {
+
+        static int[] idsProdutos = {};
+        static String[] nomesProdutos = {};
+        static double[] precosProdutos = {};
+        static int[] estoquesProdutos = {};
+
+        static int[] vendaAtualIds = {};
+        static int[] vendaAtualQuantidades = {};
+
+        static int[] historicoIdsPedidos = {};
+        static double[] historicoValoresPedidos = {};
+        static int[][] historicoItensVendidos = {};
+
     public static void main(String[] args) {
-        Scanner entrada = new Scanner (System.in);
-
-        int[] idsProdutos = null;
-        String[] nomesProdutos = null;
-        double[] precosProdutos = null;
-        int[] estoqueProdutos = null;
-
-        int[] vendaAtualIds = {};
-        int[] vendaAtualQuantidades = {};
-
-        int[] historicoIdsPedidos = {};
-        int[] historicoValoresPedidos = {};
-        int[][] historicoItensPedidos= {};
+        Scanner entrada = new Scanner(System.in);
 
         int opcao = 0;
         do {
@@ -26,23 +27,148 @@ public class MackShop {
             System.out.println("7. Buscar venda específica do histórico");
             System.out.println("8. (Admin) Repor estoque");
             System.out.println("9. (Admin) Relatório de estoque baixo");
-            System.out.printf("Escolha uma opção: ");
+            System.out.println("0. Sair");
+            System.out.printf("Digite o valor que deseja: ");
             opcao = entrada.nextInt();
-        
+
             switch (opcao) {
-                case 1: 
-                    idsProdutos = new int[]{100, 200, 300, 400};
-                    nomesProdutos = new String[]{"Caderno", "Caneta", "Lápis", "Borracha"};
-                    precosProdutos = new double[]{19.99, 1.99, 1.99, 2.99};
-                    estoqueProdutos = new int[]{20, 40, 30, 25};
-
-                System.out.println("Base inicializada!");
+            case 1:
+                inicializarBase();
                 break;
-                
-                case 2:
+            case 2:
+                if (idsProdutos.length == 0) {
+                    System.out.println("Inicialize a base primeiro!");
 
+                }
+                else {
+                    catalogoProdutos();
+                }
+                break;
+
+            case 3:
+                if (idsProdutos.length == 0) {
+                    System.out.println("Inicialize a base primeiro!");
+
+                }
+                else {
+                    itemVenda();
+                }
+                break;
+
+            case 4:
+                if (idsProdutos.length == 0) {
+                    System.out.println("Inicialize a base primeiro!");
+                }
+                else{
+                    resumoVenda();
+                }
+                break;
+
+            case 5:
+                if (idsProdutos.length == 0) {
+                    System.out.println("Inicialize a base primeiro!");
+                }
+                else{
+                    finalizarVenda();
+                }
+                break;
+
+            case 6:
+                if (idsProdutos.length == 0) {
+                    System.out.println("Inicialize a base primeiro!");
+                }
+                else{
+                    historicoVenda();
+                }
+                break;
+
+            case 7:
+                if (idsProdutos.length == 0) {
+                    System.out.println("Inicialize a base primeiro!");
+                }
+                else{
+                    buscarVenda();
+                }
+                break;
+
+            case 8:
+                if (idsProdutos.length == 0) {
+                    System.out.println("Inicialize a base primeiro!");
+                }
+                else{
+                    reporEstoque();
+                }
+                break;
+
+            case 9:
+                if (idsProdutos.length == 0) {
+                    System.out.println("Inicialize a base primeiro!");
+                }
+                else{
+                    relatorioEstoque();
+                }
+                break;
+
+            case 0:
+                System.out.println("Finalizando programa!");
+                break;
+
+            default:
+                System.out.println("Opção Inválida!");
+            }
         }
-    } while (opcao != 0);
-    entrada.close();
+        while (opcao != 0);
+    }
+    public static void inicializarBase() {
+    idsProdutos = new int[] {100, 101, 102, 103};
+    nomesProdutos = new String[] {"Caderno", "Caneta", "Lápis", "Borracha"};
+    precosProdutos = new double[] {19.99, 2.99, 1.99, 2.99};
+    estoquesProdutos = new int[] {30, 55, 42, 20};
+
+    System.out.println("Base inicializada!");
+    }
+
+    public static void catalogoProdutos() {
+        System.out.println("Catálogo de produtos:");
+        
+        for(int i = 0; i < idsProdutos.length; i++) {
+            System.out.printf("ID: %d | Nome: %s | Qtde: %d | Preço: %.2f\n", idsProdutos[i], nomesProdutos[i], estoquesProdutos[i], precosProdutos[i]);
+        }
+    }
+    
+    public static void itemVenda(Scanner entrada) {
+        System.out.print("Qual item deseja comprar (digite o ID): ");
+        int idVenda = entrada.nextInt();
+
+        System.out.print("Qual a quantidade: ");
+        int qtdeVenda = entrada.nextInt();
+        
+
+        System.out.print("Item adicionado ao carrinho!");
+    }
+
+    public static void resumoVenda () {
+
+    }
+
+    public static void finalizarVenda() {
+
+    }
+
+    public static void historicoVenda() {
+
+    }
+
+    public static void buscarVenda() {
+
+    }
+
+    public static void reporEstoque() {
+
+    }
+
+    public static void relatorioEstoque() {
+
     }
 }
+
