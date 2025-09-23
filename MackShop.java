@@ -51,7 +51,7 @@ public class MackShop {
 
                 }
                 else {
-                    itemVenda();
+                    itemVenda(entrada);
                 }
                 break;
 
@@ -136,16 +136,28 @@ public class MackShop {
         }
     }
     
-    public static void itemVenda(Scanner entrada) {
+    public static void itemVenda(entrada) {
         System.out.print("Qual item deseja comprar (digite o ID): ");
         int idVenda = entrada.nextInt();
+        
 
         System.out.print("Qual a quantidade: ");
         int qtdeVenda = entrada.nextInt();
         
+        int[] novosIds = new int[vendaAtualIds.length + 1];
+        int[] novasQtde = new int[vendaAtualQuantidades.length + 1];
+
+        for (int i = 0; i < vendaAtualIds.length; i++) {
+            novosIds[i] = vendaAtualIds[i];
+            novasQtde[i] = vendaAtualQuantidades[i];
+        }
+        novosIds[novosIds.length - 1] = idVenda;
+        novasQtde[novasQtde.length - 1] = qtdeVenda;
+
+        vendaAtualIds = novosIds;
+        vendaAtualQuantidades = novasQtde;
 
         System.out.print("Item adicionado ao carrinho!");
-    }
 
     public static void resumoVenda () {
 
