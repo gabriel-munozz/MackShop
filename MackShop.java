@@ -110,7 +110,7 @@ public class MackShop {
                 break;
 
             case 0:
-                System.out.println("Finalizando programa!");
+                System.out.println("Programa finalizado!");
                 break;
 
             default:
@@ -120,12 +120,12 @@ public class MackShop {
         while (opcao != 0);
     }
     public static void inicializarBase() {
-    idsProdutos = new int[] {100, 101, 102, 103};
-    nomesProdutos = new String[] {"Caderno", "Caneta", "Lápis", "Borracha"};
-    precosProdutos = new double[] {19.99, 2.99, 1.99, 2.99};
-    estoquesProdutos = new int[] {30, 55, 42, 20};
+        idsProdutos = new int[] {100, 101, 102, 103};
+        nomesProdutos = new String[] {"Caderno", "Caneta", "Lápis", "Borracha"};
+        precosProdutos = new double[] {19.99, 2.99, 1.99, 2.99};
+        estoquesProdutos = new int[] {30, 55, 42, 20};
 
-    System.out.println("Base inicializada!");
+        System.out.println("Base inicializada!");
     }
 
     public static void catalogoProdutos() {
@@ -160,8 +160,35 @@ public class MackShop {
     }
 
     public static void resumoVenda () {
-
+        if (vendaAtualIds.length == 0) {
+        System.out.println("Nenhum item no carrinho!");
+        return;
     }
+        double total = 0;
+        System.out.println("\nResumo da venda atual:");
+
+        for (int i = 0; i < vendaAtualIds.length; i++) {
+            int id = vendaAtualIds[i];
+            int qtde = vendaAtualQuantidades[i];
+
+            int pos = -1;
+            for (int j = 0; j < idsProdutos.length; j++) {
+                if (idsProdutos[j] == id) {
+                    pos = j;
+                    break;
+                }
+            }
+
+            if (pos != -1) {
+                double subtotal = precosProdutos[pos] * qtde;
+                total += subtotal;
+                System.out.printf("ID: %d | %s | Qtde: %d | Preço: %.2f | Subtotal: %.2f\n", id, nomesProdutos[pos], qtde, precosProdutos[pos], subtotal);
+            } else {
+                System.out.printf("ID %d não encontrado no catálogo!\n", id);
+            }
+        }
+        System.out.printf("TOTAL: %.2f\n\n", total);
+}
 
     public static void finalizarVenda() {
 
