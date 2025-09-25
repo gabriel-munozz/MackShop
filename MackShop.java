@@ -136,14 +136,13 @@ public class MackShop {
         }
     }
     
-    public static void itemVenda(entrada) {
+    public static void itemVenda(Scanner entrada) {
         System.out.print("Qual item deseja comprar (digite o ID): ");
         int idVenda = entrada.nextInt();
         
-
         System.out.print("Qual a quantidade: ");
         int qtdeVenda = entrada.nextInt();
-        
+
         int[] novosIds = new int[vendaAtualIds.length + 1];
         int[] novasQtde = new int[vendaAtualQuantidades.length + 1];
 
@@ -157,7 +156,8 @@ public class MackShop {
         vendaAtualIds = novosIds;
         vendaAtualQuantidades = novasQtde;
 
-        System.out.print("Item adicionado ao carrinho!");
+        System.out.println("Item adicionado ao carrinho!");
+    }
 
     public static void resumoVenda () {
 
