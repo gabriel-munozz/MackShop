@@ -96,7 +96,7 @@ public class MackShop {
                     System.out.println("Inicialize a base primeiro!");
                 }
                 else{
-                    reporEstoque();
+                    reporEstoque(entrada);
                 }
                 break;
 
@@ -202,12 +202,37 @@ public class MackShop {
 
     }
 
-    public static void reporEstoque() {
+    public static void reporEstoque(Scanner entrada) {
+        System.out.print("Digite o ID do produto: ");
+        int id = entrada.nextInt();
+        System.out.print("Digite a quantidade a repor: ");
+        int qtde = entrada.nextInt();
+
+        for (int i = 0; i < idsProdutos.length; i++) {
+            if (idsProdutos[i] == id) {
+                estoquesProdutos[i] += qtde;
+                System.out.printf("Novo estoque de %d para o %s\n", estoquesProdutos[i], nomesProdutos[i]);
+                return;
+            }
+        }
+        System.out.println("Produto não encontrado!");
 
     }
 
     public static void relatorioEstoque() {
+        System.out.println("Produtos com estoque baixo (menos de 8 unidades):");
+        boolean algumBaixo = false;
 
+        for (int i = 0; i < idsProdutos.length; i++) {
+            if (estoquesProdutos[i] < 8) {
+                System.out.printf("ID: %d | Nome: %s | Estoque: %d", idsProdutos[i], nomesProdutos[i], estoquesProdutos[i]);
+                algumBaixo = true;
+            }
+        }
+
+        if (!algumBaixo) {
+            System.out.println("Nenhum produto com estoque baixo.");
+        }
     }
 }
 
